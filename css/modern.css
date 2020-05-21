@@ -123,11 +123,39 @@
 .sv-body__progress:not(:first-child) {
   margin-top: 2.5em; }
 
-.sv-page__title {
+/* .sv-page__title {
   margin: 0;
   margin-bottom: 1.333em;
   font-size: 1.875em;
-  padding-left: 0.293em; }
+  padding-left: 0.293em; } */
+.sv_page_title {
+  padding-bottom: 20px;
+  text-align: center;
+
+  color: #393a3d;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+  margin: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+@media (min-width: 992px){
+  .sv_page_title {
+    padding-bottom: 30px;
+    text-align: left;
+
+    color: #393a3d;
+    display: inline-block;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 40px;
+    min-width: 85%;
+  }
+}
 
 .sv-page__description {
   min-height: 2.8em;
