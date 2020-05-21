@@ -2,18 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as Survey from 'survey-react';
 
-import TopBar from './topBar.jsx';
-import SideBar from './sideBar.jsx';
+// import TopBar from './topBar.jsx';
+// import SideBar from './sideBar.jsx';
 
-Survey.StylesManager.applyTheme("modern");
-Survey.Serializer.addProperty("panel", "bottom_border");
+// Survey.StylesManager.applyTheme("modern");
+Survey.Serializer.addProperty("text", "inputWidth");
 
-var myCss = {
-  page: {title: "page_title"},
-  panel: {title: "panel_title"},
-  question: {title: "question_title"},
-  text: {root: "input_box"}
-}
+// var myCss = {
+//   page: {title: "page_title"},
+//   panel: {title: "panel_title"},
+//   question: {title: "question_title"},
+//   text: {root: "input_box"}
+// }
 
 var json = {
   "completeText": "Finish",
@@ -35,47 +35,46 @@ var json = {
               "type": "text",
               "name": "first_name",
               "title": "First Name",
-              "width": "250px"
+              "inputWidth": "70%"
             }, {
               "type": "text",
               "name": "middle_name",
               "title": "Middle Name",
-              "startWithNewLine": false,
-              "width": "100px"
+              "inputWidth": "50%",
+              "startWithNewLine": false
             }, {
               "type": "text",
               "name": "last_name",
               "title": "Last Name",
-              "startWithNewLine": false,
-              "width": "50px"
+              "inputWidth": "70%",
+              "startWithNewLine": false
             }, {
               "type": "text",
               "name": "prefix",
               "title": "Jr, Sr, etc.",
-              "startWithNewLine": false,
-              "width": "30px"
+              "inutWidth": "30%",
+              "startWithNewLine": false
             }, {
               "type": "text",
               "inputType": "date",
               "name": "dob",
               "title": "Date of Birth",
-              "inputWidth": "33.33%",
               "placeHolder": "mm/dd/yyyy",
-              "isRequired": true
+              "inputWidth": "30%"
             }, {
               "type": "text",
               "inputType": "number",
               "name": "ss_number",
               "title": "Social Security Number",
-              "width": "33.33%",
               "placeHolder": "xxx-xx-xxxx",
+              "inputWidth": "30%",
               "maxLength": 9
             }, {
               "type": "text",
               "name": "Occupation",
-              "width": "33.33%",
               "description": "Example: student, retired, engineer",
-              "descriptionLocation": "underInput"
+              "descriptionLocation": "underInput",
+              "inputWidth": "30%"
             }, {
               "type": "radiogroup",
               "name": "us_armed_force",
@@ -88,8 +87,7 @@ var json = {
               "visible": false,
               "visibleIf": "{us_armed_force} =1"
             }
-          ],
-          "bottom_border": "1px solid cyan"
+          ]
         }, {
           "type": "panel",
           "name": "page_1_panel_2",
@@ -136,8 +134,7 @@ var json = {
               "visible": false,
               "visibleIf": "{another_state_2019} =1"
             }
-          ],
-          "bottom_border": "1px solid cyan"
+          ]
         }, {
           "type": "panel",
           "name": "page_1_panel_3",
@@ -188,8 +185,7 @@ var json = {
               "visible": false,
               "visibleIf": "{return_of_some_other} =1"
             }
-          ],
-          "bottom_border": "1px solid #d4d7dc"
+          ]
         }
       ]
     }, {
@@ -217,8 +213,7 @@ var json = {
             }
           ]
         }
-      ],
-      "bottom_border" : "1px solid #d4d7dc"
+      ]
     }, {
       "name": "page3",
       "title": "Do you have children or support another person?",
@@ -248,27 +243,51 @@ var json = {
 window.survey = new Survey.Model(json);
 
 survey.onUpdateQuestionCssClasses.add(
+  function (sender, options) {
+    console.log(">>>>>>>>>> onUpdateQuestionCssClasses " + options.question.title);
+    console.log(options);
+    var classes = options.cssClasses;
+    if(options.question.getType() === "text"){
+      console.log("TEXT QUESTION");
+      classes.title = "question_label";
+      classes.root = "question_input_field";
+    }
+    console.log(options);
+    // Though this event is getting fired many times, consistency is maintained. See the console
+});
+
+survey.onAfterRenderQuestionInput.add(
   function(sender, options){
-    // This function is being called many times.
-    console.log(">>>>>>>>>>>> " + options.question.getType() + " " + options.question.title);
+    if(!options.question.inputWidth) return;
+    options.htmlElement.style.width = options.question.inputWidth;
   }
 );
 
+
 survey.onAfterRenderPanel.add(
   function(sender, options) {
-    console.log("0000000000" + options.panel.title);
-    console.log(options);
-    console.log(sender);
-    var classes = options.cssClasses;
-    if(!options.panel.bottom_border){
-      console.log("0000000000 MISSING!");
+    // console.log("0000000000" + options.panel.title);
+    if(!options.panel.parent.isPage){
+      // console.log("0000000000 It is NOT Page Level Panel!");
       return;
     } else {
-      console.log("0000000000 YESSS -- " + options.panel.bottom_border);
-      options.htmlElement.style.borderBottom = options.panel.bottom_border;
+      // console.log("0000000000 Page level Panel -- ");
+      // Add the bottom border
+      options.htmlElement.style.borderBottom = "1px solid cyan";
     }
   }
 );
+
+survey.onUpdatePanelCssClasses.add(
+  function (sender, options) {
+    // console.log(".......... onUpdatePanelCssClasses " + options.panel.title);
+    var classes = options.cssClasses;
+    if(options.panel.parent.isPage){
+      // console.log("This is the Page Level Panel");
+      classes.panel.title = "page_level_panel_title";
+    }
+    // Though this event is getting fired many times, consistency is maintained. See the console
+});
 
 survey.onAfterRenderPage.add(
   function(sender, options){
@@ -280,24 +299,23 @@ survey.onAfterRenderPage.add(
 survey.onComplete.add(function (result) {
   console.log("You have completed the survey. Thank you.");
   console.log("Result JSON:\n" + JSON.stringify(result.data, null, 3));
-  console.log(survey.getQuestionByName('state_2019').value);
+  // console.log(survey.getQuestionByName('state_2019').value);
 });
 
 class HomePage extends React.Component  {
   render(){
     return(
-      <div>
-        <div className="App__container___1YUp2">
-          <section className="App__hamburgerBlanketCover___1y_d5"></section>
-          <SideBar />
-          <TopBar />
-        </div>
-      </div>
+      <Survey.Survey model={survey} />
     );
   }
 }
 
 export default HomePage;
-{/* <NavBar /> <div id='survey_page'>
-  <Survey.Survey model={survey} css={myCss}/>
+
+{/* <div>
+  <div className="App__container___1YUp2">
+    <section className="App__hamburgerBlanketCover___1y_d5"></section>
+    <SideBar />
+    <TopBar />
+  </div>
 </div> */}
