@@ -1,6 +1,10 @@
 form {
   color: #393a3d;
   font-family: Avenir Next forINTUIT,Avenir,Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -198,4 +202,115 @@ input[type=radio]:checked {
   margin-bottom: 0;
   max-width: 100%;
   text-align: left;
+}
+
+.sv_nav {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.sv_nav > input {
+  font-size: 19px;
+  line-height: 24px;
+  min-height: 48px;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 18px;
+  margin-bottom: 5px;
+  min-height: 38px;
+  outline: none;
+  text-align: center;
+  transition: all .24s ease;
+  white-space: nowrap;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (min-width: 992px){
+  .sv_nav {
+    display: inline;
+    margin-top: 50px;
+    padding-top: 30px;
+  }
+  .sv_nav > input {
+    width: 120px;
+    padding-right: 20px;
+  }
+}
+
+.sv_next_btn{
+  background-color: #037c8f;
+  color: #fff;
+}
+
+@media (min-width: 992px){
+  .sv_next_btn {
+    margin-top: -10px;
+    position: absolute;
+    right: 2%;
+  }
+}
+
+.sv_prev_btn{
+  background-color: #fff;
+  color: #6b6c72;
+  min-width: 0;
+  padding-left: 18px;
+}
+
+@media (min-width: 992px){
+  .sv_prev_btn {
+    order: -1;
+  }
+}
+
+select {
+  /* -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none; */
+  padding-right: 25px;
+  -moz-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  -webkit-border-radius: 0;
+  -webkit-box-shadow: none;
+  -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  background-color: #fff;
+  background-image: none;
+  border: solid #babec5;
+  border-radius: 0;
+  border-width: 0 0 1px;
+  box-shadow: none;
+  outline: 0;
+  padding: 0;
+  transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  width: 100%;
+  color: #393a3d;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+select:hover, select:focus {
+  border-color: #037c8f;
+  box-shadow: 0 0 0 2px rgba(3,124,143,0.25);
+}
+
+@media (min-width: 992px){
+  select {
+    border-color: #babec5;
+    border-width: 1px;
+    height: 2.3em;
+    padding: 2px 9px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    width: 40%;
+  }
 }
