@@ -238,8 +238,8 @@ window.survey = new Survey.Model(json);
 survey.onUpdateQuestionCssClasses.add(
   function (sender, options) {
     // Though this event is getting fired many times, consistency is maintained. See the console
-    console.log(">>>>>>>>>> onUpdateQuestionCssClasses " + options.question.title);
-    console.log(options);
+    // console.log(">>>>>>>>>> onUpdateQuestionCssClasses " + options.question.title);
+    // console.log(options);
     var classes = options.cssClasses;
     if(options.question.getType() === "text"){
       // console.log("TEXT QUESTION");
