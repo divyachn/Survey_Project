@@ -26,6 +26,14 @@ form {
 }
 
 @media (min-width: 992px){
+  .page_level_panel_container {
+    padding-bottom: 30px;
+    border-bottom: 1px solid cyan;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 992px){
   .page_level_panel_title {
     color: #6b6c72;
     font-size: 24px;
@@ -68,7 +76,7 @@ form {
   overflow: hidden;
 }
 
-.question_input_field:focus {
+.question_input_field:focus, .question_input_field:hover {
   background-color: #fff;
   border-color: #037c8f;
   box-shadow: 0 0 0 2px rgba(3,124,143,0.25);
@@ -94,17 +102,21 @@ input[type=number] {
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: pink;
+  color: #b6b6b8;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  color: pink;
+  color: #b6b6b8;
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: pink;
+  color: #b6b6b8;
 }
 :-moz-placeholder { /* Firefox 18- */
-  color: pink;
+  color: #b6b6b8;
 }
+
+/* input[type="date"]:placeholder-shown {
+  color: #b6b6b8;
+} */
 
 input[class="question_input_field"] + div > span {
   font-style: italic;
@@ -112,4 +124,78 @@ input[class="question_input_field"] + div > span {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
+}
+
+/* Label of Radio Qquestion */
+div[role="radiogroup"] .sv_q_title {
+  border-bottom: none;
+  color: #393a3d;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 10px;
+  padding: 0;
+}
+
+input[type=checkbox], input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  display: inline-block;
+  background-color: #fff;
+  color: #037c8f;
+  top: 3px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-right: 7px;
+  outline: none;
+  border: 1px solid #393a3d;
+}
+
+@media (min-width: 768px){
+  input[type=radio]{
+    height: 20px;
+    width: 20px;
+  }
+}
+
+input[type=radio]:checked::before {
+  position: absolute;
+  top: -18px;
+  left: -1px;
+  content: '\25cf';
+  font-size: 50px;
+}
+
+@media (min-width: 768px){
+  input[type=radio]:checked::before {
+    position: absolute;
+    top: -9px;
+    left: 0px;
+    font-size: 30px;
+  }
+}
+
+input[type=radio]:hover {
+  border: 1px solid #037c8f;
+}
+
+input[type=radio]:checked {
+  border: 1px solid #037c8f;
+}
+
+.sv_q_radiogroup span[style]{
+  color: #393a3d;
+  cursor: pointer;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 0;
+  max-width: 100%;
+  text-align: left;
 }
