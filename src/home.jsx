@@ -6,7 +6,7 @@ import * as Survey from 'survey-react';
 // import SideBar from './sideBar.jsx';
 
 // Survey.StylesManager.applyTheme("modern");
-Survey.Serializer.addProperty("text", "inputWidth");
+// Survey.Serializer.addProperty("text", "inputWidth");
 
 // var myCss = {
 //   page: {title: "page_title"},
@@ -34,47 +34,40 @@ var json = {
             {
               "type": "text",
               "name": "first_name",
-              "title": "First Name",
-              "inputWidth": "70%"
+              "title": "First Name"
             }, {
               "type": "text",
               "name": "middle_name",
               "title": "Middle Name",
-              "inputWidth": "50%",
               "startWithNewLine": false
             }, {
               "type": "text",
               "name": "last_name",
               "title": "Last Name",
-              "inputWidth": "70%",
               "startWithNewLine": false
             }, {
               "type": "text",
               "name": "prefix",
               "title": "Jr, Sr, etc.",
-              "inutWidth": "30%",
               "startWithNewLine": false
             }, {
               "type": "text",
               "inputType": "date",
               "name": "dob",
               "title": "Date of Birth",
-              "placeHolder": "mm/dd/yyyy",
-              "inputWidth": "30%"
+              "placeHolder": "mm/dd/yyyy"
             }, {
               "type": "text",
               "inputType": "number",
               "name": "ss_number",
               "title": "Social Security Number",
               "placeHolder": "xxx-xx-xxxx",
-              "inputWidth": "30%",
               "maxLength": 9
             }, {
               "type": "text",
               "name": "Occupation",
               "description": "Example: student, retired, engineer",
-              "descriptionLocation": "underInput",
-              "inputWidth": "30%"
+              "descriptionLocation": "underInput"
             }, {
               "type": "radiogroup",
               "name": "us_armed_force",
@@ -244,49 +237,35 @@ window.survey = new Survey.Model(json);
 
 survey.onUpdateQuestionCssClasses.add(
   function (sender, options) {
+    // Though this event is getting fired many times, consistency is maintained. See the console
     console.log(">>>>>>>>>> onUpdateQuestionCssClasses " + options.question.title);
     console.log(options);
     var classes = options.cssClasses;
     if(options.question.getType() === "text"){
-      console.log("TEXT QUESTION");
+      // console.log("TEXT QUESTION");
       classes.title = "question_label";
       classes.root = "question_input_field";
     }
-    console.log(options);
-    // Though this event is getting fired many times, consistency is maintained. See the console
 });
 
 survey.onAfterRenderQuestionInput.add(
   function(sender, options){
-    if(!options.question.inputWidth) return;
-    options.htmlElement.style.width = options.question.inputWidth;
-  }
-);
-
-
-survey.onAfterRenderPanel.add(
-  function(sender, options) {
-    // console.log("0000000000" + options.panel.title);
-    if(!options.panel.parent.isPage){
-      // console.log("0000000000 It is NOT Page Level Panel!");
-      return;
-    } else {
-      // console.log("0000000000 Page level Panel -- ");
-      // Add the bottom border
-      options.htmlElement.style.borderBottom = "1px solid cyan";
-    }
+    // if(!options.question.inputWidth) return;
+    // options.htmlElement.style.width = options.question.inputWidth;
   }
 );
 
 survey.onUpdatePanelCssClasses.add(
   function (sender, options) {
+    // Though this event is getting fired many times, consistency is maintained. See the console
     // console.log(".......... onUpdatePanelCssClasses " + options.panel.title);
+    // console.log(options);
     var classes = options.cssClasses;
     if(options.panel.parent.isPage){
       // console.log("This is the Page Level Panel");
       classes.panel.title = "page_level_panel_title";
+      classes.panel.container += " page_level_panel_container";
     }
-    // Though this event is getting fired many times, consistency is maintained. See the console
 });
 
 survey.onAfterRenderPage.add(
