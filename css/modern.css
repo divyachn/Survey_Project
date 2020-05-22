@@ -271,7 +271,7 @@
 .sv-paneldynamic__progress--bottom {
   margin-top: 1em; }
 
-@supports (display: flex) {
+/* @supports (display: flex) {
   .sv-row {
     display: flex;
     flex-wrap: wrap; }
@@ -279,7 +279,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-basis: 100%; }
-}
+} */
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .sv-row > .sv-row__panel,
