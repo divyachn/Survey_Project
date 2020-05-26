@@ -118,9 +118,9 @@ input[type=number] {
   color: #b6b6b8;
 }
 
-/* input[type="date"]:placeholder-shown {
-  color: #b6b6b8;
-} */
+input[type=date]:invalid::-webkit-datetime-edit {
+    color: #b6b6b8;
+}
 
 input[class="question_input_field"] + div > span {
   font-style: italic;
@@ -160,8 +160,8 @@ input[type=checkbox], input[type=radio] {
   border: 1px solid #393a3d;
 }
 
-@media (min-width: 768px){
-  input[type=radio]{
+@media (min-width: 768px) {
+  input[type=radio] {
     height: 20px;
     width: 20px;
   }
@@ -169,8 +169,8 @@ input[type=checkbox], input[type=radio] {
 
 input[type=radio]:checked::before {
   position: absolute;
-  top: -18px;
-  left: -1px;
+  top: -61.5%;
+  left: -3%;
   content: '\25cf';
   font-size: 50px;
 }
@@ -178,21 +178,17 @@ input[type=radio]:checked::before {
 @media (min-width: 768px){
   input[type=radio]:checked::before {
     position: absolute;
-    top: -9px;
+    top: -48%;
     left: 0px;
     font-size: 30px;
   }
 }
 
-input[type=radio]:hover {
+input[type=radio]:hover, input[type=radio]:checked {
   border: 1px solid #037c8f;
 }
 
-input[type=radio]:checked {
-  border: 1px solid #037c8f;
-}
-
-.sv_q_radiogroup span[style]{
+.sv_q_radiogroup span[style] {
   color: #393a3d;
   cursor: pointer;
   font-size: 16px;
@@ -269,10 +265,37 @@ input[type=radio]:checked {
   }
 }
 
-select {
-  /* -moz-appearance: none;
+.sv_select_wrapper {
+  position: relative;
+  /*Don't really need this just for demo styling*/
+  float: left;
+  width: 100%;
+}
+
+.sv_select_wrapper:after {
+  content: '\f078';
+  font: normal normal normal 15px/1 FontAwesome;
+  color: #037c8f;
+  right: 11px;
+  top: -10px;
+  height: 34px;
+  padding: 15px 0px 0px 8px;
+  /* border-left: 1px solid #0ebeff; */
+  position: absolute;
+  pointer-events: none;
+}
+
+@media (min-width: 992px){
+  .sv_select_wrapper:after {
+    top: 5px;
+    right: 61%;
+  }
+}
+
+.sv_select_wrapper select {
+  -moz-appearance: none;
   -webkit-appearance: none;
-  appearance: none; */
+  appearance: none;
   padding-right: 25px;
   -moz-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   -webkit-border-radius: 0;
@@ -295,13 +318,13 @@ select {
   margin-bottom: 30px;
 }
 
-select:hover, select:focus {
-  border-color: #037c8f;
-  box-shadow: 0 0 0 2px rgba(3,124,143,0.25);
+.sv_select_wrapper select:hover, .sv_select_wrapper select:focus {
+  border-bottom-color: #037c8f;
+  /* box-shadow: 0 0 0 2px rgba(3,124,143,0.25); */
 }
 
 @media (min-width: 992px){
-  select {
+  .sv_select_wrapper select {
     border-color: #babec5;
     border-width: 1px;
     height: 2.3em;
@@ -312,5 +335,10 @@ select:hover, select:focus {
     font-weight: 400;
     line-height: 20px;
     width: 40%;
+  }
+
+  .sv_select_wrapper select:hover, .sv_select_wrapper select:focus {
+    border-color: #037c8f;
+    box-shadow: 0 0 0 2px rgba(3,124,143,0.25);
   }
 }
