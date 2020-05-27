@@ -67,20 +67,23 @@ form {
   font-weight: 600;
   line-height: 20px;
   padding: 10px 8px;
-  background: 0 0;
-  border: none;
   box-sizing: border-box;
-  flex: 1;
   background-color: #fff;
   border: 1px solid #babec5;
   border-radius: 3px;
   box-sizing: border-box;
-  display: flex;
   height: 36px;
   overflow: hidden;
+  margin: 2px;
 }
 
-.question_input_field:focus, .question_input_field:hover {
+.question_input_field:focus {
+  background-color: #fff;
+  border-color: #037c8f;
+  box-shadow: 0 0 0 2px rgba(3,124,143,0.25);
+}
+
+.question_input_field:hover {
   background-color: #fff;
   border-color: #037c8f;
   box-shadow: 0 0 0 2px rgba(3,124,143,0.25);
@@ -142,62 +145,97 @@ div[role="radiogroup"] .sv_q_title {
   padding: 0;
 }
 
-input[type=checkbox], input[type=radio] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+/* The container */
+.sv_q_radiogroup_label {
+  display: block;
   position: relative;
-  display: inline-block;
-  background-color: #fff;
-  color: #037c8f;
-  top: 3px;
-  height: 30px;
-  width: 30px;
-  border-radius: 50px;
+  padding-left: 35px;
+  margin-bottom: 12px;
   cursor: pointer;
-  margin-right: 7px;
-  outline: none;
-  border: 1px solid #393a3d;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+  color: #393a3d;
+  text-align: left;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-@media (min-width: 768px) {
-  input[type=radio] {
+@media only screen and (min-width: 768px) {
+  .sv_q_radiogroup_label {
+    line-height: 20px;
+  }
+}
+
+/* Hide the browser's default radio button */
+.sv_q_radiogroup_label input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.sv_q_radiogroup_label .check {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  background-color: #fff;
+  border: 1px solid #393a3d;
+  border-radius: 50%;
+}
+
+@media only screen and (min-width: 768px) {
+  .sv_q_radiogroup_label .check {
     height: 20px;
     width: 20px;
   }
 }
 
-input[type=radio]:checked::before {
-  position: absolute;
-  top: -61.5%;
-  left: -3%;
-  content: '\25cf';
-  font-size: 50px;
-}
-
-@media (min-width: 768px){
-  input[type=radio]:checked::before {
-    position: absolute;
-    top: -48%;
-    left: 0px;
-    font-size: 30px;
-  }
-}
-
-input[type=radio]:hover, input[type=radio]:checked {
+/* On mouse-over, add border color */
+.sv_q_radiogroup_label:hover input ~ .check {
   border: 1px solid #037c8f;
 }
 
-.sv_q_radiogroup span[style] {
-  color: #393a3d;
-  cursor: pointer;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
-  margin-bottom: 0;
-  max-width: 100%;
-  text-align: left;
+/* When the radio button is checked, add a blue dot */
+.sv_q_radiogroup input:checked ~ .check {
+  background-color: #fff;
+  border: 1px solid #037c8f;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.sv_q_radiogroup .check:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.sv_q_radiogroup input:checked ~ .check:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.sv_q_radiogroup .check:after {
+ 	top: 5px;
+	left: 5px;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: #037c8f;
+}
+
+@media only screen and (min-width: 768px) {
+  .sv_q_radiogroup .check:after {
+    top: 4px;
+  	left: 4px;
+  	width: 12px;
+  	height: 12px;
+  }
 }
 
 .sv_nav {
@@ -316,6 +354,7 @@ input[type=radio]:hover, input[type=radio]:checked {
   color: #393a3d;
   margin-top: 10px;
   margin-bottom: 30px;
+  margin-left: 5px;
 }
 
 .sv_select_wrapper select:hover, .sv_select_wrapper select:focus {
