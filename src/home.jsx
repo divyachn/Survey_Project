@@ -2,9 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import * as Survey from 'survey-react';
 
-// import TopBar from './topBar.jsx';
-// import SideBar from './sideBar.jsx';
-
 // Survey.StylesManager.applyTheme("modern");
 // Survey.Serializer.addProperty("text", "inputWidth");
 
@@ -243,8 +240,8 @@ survey.onUpdateQuestionCssClasses.add(
     var classes = options.cssClasses;
     if(options.question.getType() === "text"){
       // console.log("TEXT QUESTION");
-      classes.title = "question_label";
-      classes.root = "question_input_field";
+      // classes.title = "question_label";
+      // classes.root = "question_input_field";
     }
 });
 
@@ -263,8 +260,11 @@ survey.onUpdatePanelCssClasses.add(
     var classes = options.cssClasses;
     if(options.panel.parent.isPage){
       // console.log("This is the Page Level Panel");
-      classes.panel.title = "page_level_panel_title";
-      classes.panel.container += " page_level_panel_container";
+      // classes.panel.title = "page_level_panel_title";
+      // classes.panel.container += " page_level_panel_container";
+      if(options.panel.no === "1."){ // strict comparison to check the first panel
+          // classes.panel.container += " page_level_panel_container_first";
+      }
     }
 });
 
@@ -278,7 +278,6 @@ survey.onAfterRenderPage.add(
 survey.onComplete.add(function (result) {
   console.log("You have completed the survey. Thank you.");
   console.log("Result JSON:\n" + JSON.stringify(result.data, null, 3));
-  // console.log(survey.getQuestionByName('state_2019').value);
 });
 
 class HomePage extends React.Component  {
@@ -290,11 +289,3 @@ class HomePage extends React.Component  {
 }
 
 export default HomePage;
-
-{/* <div>
-  <div className="App__container___1YUp2">
-    <section className="App__hamburgerBlanketCover___1y_d5"></section>
-    <SideBar />
-    <TopBar />
-  </div>
-</div> */}
