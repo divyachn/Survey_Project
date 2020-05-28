@@ -1,383 +1,361 @@
 form {
-  color: #393a3d;
-  font-family: Avenir Next forINTUIT,Avenir,Helvetica,Arial,sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
-}
-
-@media only screen and (min-width: 768px) {
-  form {
-    padding: 0 20px;
-  }
-}
-
-@media (min-width: 992px){
-  form {
-    min-height: 415px;
-  }
-}
-
-.page_level_panel_title{
-  color: #393a3d;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  font-weight: 500;
-  line-height: 20px;
-  margin-bottom: 12px;
-}
-
-@media (min-width: 992px){
-  .page_level_panel_container {
-    padding-bottom: 30px;
-    border-bottom: 1px solid cyan;
-    margin-bottom: 30px;
-  }
-}
-
-@media (min-width: 992px){
-  .page_level_panel_title {
-    color: #6b6c72;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 28px;
-    margin-bottom: 20px;
-    margin-top: 0px;
-  }
-}
-
-.question_label, .sv_q_title {
-  color: #6b6c72;
-  display: flex;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  justify-content: space-between;
-  line-height: 20px;
-  margin-bottom: 4px;
-  width: 100%;
-}
-
-.question_input_field {
-  color: #393a3d;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 20px;
-  padding: 10px 8px;
-  box-sizing: border-box;
-  background-color: #fff;
-  border: 1px solid #babec5;
-  border-radius: 3px;
-  box-sizing: border-box;
-  height: 36px;
-  overflow: hidden;
-  margin: 2px;
-}
-
-.question_input_field:focus {
-  background-color: #fff;
-  border-color: #037c8f;
-  box-shadow: 0 0 0 2px rgba(3,124,143,0.25);
-}
-
-.question_input_field:hover {
-  background-color: #fff;
-  border-color: #037c8f;
-  box-shadow: 0 0 0 2px rgba(3,124,143,0.25);
-}
-
-@media only screen and (min-width: 992px){
-  .question_input_field {
-    font-weight: 500;
-    padding: 8px;
-  }
-}
-
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #b6b6b8;
-}
-::-moz-placeholder { /* Firefox 19+ */
-  color: #b6b6b8;
-}
-:-ms-input-placeholder { /* IE 10+ */
-  color: #b6b6b8;
-}
-:-moz-placeholder { /* Firefox 18- */
-  color: #b6b6b8;
-}
-
-input[type=date]:invalid::-webkit-datetime-edit {
-    color: #b6b6b8;
-}
-
-input[class="question_input_field"] + div > span {
-  font-style: italic;
-  color: #6b6c72;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 20px;
-}
-
-/* Label of Radio Qquestion */
-div[role="radiogroup"] .sv_q_title {
-  border-bottom: none;
-  color: #393a3d;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
-  margin-bottom: 10px;
-  padding: 0;
-}
-
-/* The container */
-.sv_q_radiogroup_label {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 30px;
-  color: #393a3d;
-  text-align: left;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-@media only screen and (min-width: 768px) {
-  .sv_q_radiogroup_label {
-    line-height: 20px;
-  }
-}
-
-/* Hide the browser's default radio button */
-.sv_q_radiogroup_label input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-/* Create a custom radio button */
-.sv_q_radiogroup_label .check {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 30px;
-  width: 30px;
-  background-color: #fff;
-  border: 1px solid #393a3d;
-  border-radius: 50%;
-}
-
-@media only screen and (min-width: 768px) {
-  .sv_q_radiogroup_label .check {
-    height: 20px;
-    width: 20px;
-  }
-}
-
-/* On mouse-over, add border color */
-.sv_q_radiogroup_label:hover input ~ .check {
-  border: 1px solid #037c8f;
-}
-
-/* When the radio button is checked, add a blue dot */
-.sv_q_radiogroup input:checked ~ .check {
-  background-color: #fff;
-  border: 1px solid #037c8f;
-}
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.sv_q_radiogroup .check:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Show the indicator (dot/circle) when checked */
-.sv_q_radiogroup input:checked ~ .check:after {
-  display: block;
-}
-
-/* Style the indicator (dot/circle) */
-.sv_q_radiogroup .check:after {
- 	top: 5px;
-	left: 5px;
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	background: #037c8f;
-}
-
-@media only screen and (min-width: 768px) {
-  .sv_q_radiogroup .check:after {
-    top: 4px;
-  	left: 4px;
-  	width: 12px;
-  	height: 12px;
-  }
-}
-
-.sv_nav {
-  display: flex;
-  flex-direction: column-reverse;
-}
-
-.sv_nav > input {
-  font-size: 19px;
-  line-height: 24px;
-  min-height: 48px;
-  width: 100%;
-  border: none;
-  border-radius: 4px;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 18px;
-  margin-bottom: 5px;
-  min-height: 38px;
-  outline: none;
-  text-align: center;
-  transition: all .24s ease;
-  white-space: nowrap;
-  vertical-align: middle;
-  touch-action: manipulation;
-  cursor: pointer;
-  user-select: none;
-}
-
-@media (min-width: 992px){
-  .sv_nav {
-    display: inline;
-    margin-top: 50px;
-    padding-top: 30px;
-  }
-  .sv_nav > input {
-    width: 120px;
-    padding-right: 20px;
-  }
-}
-
-.sv_next_btn{
-  background-color: #037c8f;
-  color: #fff;
-}
-
-@media (min-width: 992px){
-  .sv_next_btn {
-    margin-top: -10px;
-    position: absolute;
-    right: 2%;
-  }
-}
-
-.sv_prev_btn{
-  background-color: #fff;
-  color: #6b6c72;
-  min-width: 0;
-  padding-left: 18px;
-}
-
-@media (min-width: 992px){
-  .sv_prev_btn {
-    order: -1;
-  }
-}
-
-.sv_select_wrapper {
-  position: relative;
-  /*Don't really need this just for demo styling*/
-  float: left;
-  width: 100%;
-}
-
-.sv_select_wrapper:after {
-  content: '\f078';
-  font: normal normal normal 15px/1 FontAwesome;
-  color: #037c8f;
-  right: 11px;
-  top: -10px;
-  height: 34px;
-  padding: 15px 0px 0px 8px;
-  /* border-left: 1px solid #0ebeff; */
-  position: absolute;
-  pointer-events: none;
-}
-
-@media (min-width: 992px){
-  .sv_select_wrapper:after {
-    top: 5px;
-    right: 61%;
-  }
-}
-
-.sv_select_wrapper select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-  padding-right: 25px;
-  -moz-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  -webkit-border-radius: 0;
-  -webkit-box-shadow: none;
-  -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-  background-color: #fff;
-  background-image: none;
-  border: solid #babec5;
-  border-radius: 0;
-  border-width: 0 0 1px;
-  box-shadow: none;
-  outline: 0;
-  padding: 0;
-  transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
-  width: 100%;
-  color: #393a3d;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  margin-left: 5px;
-}
-
-.sv_select_wrapper select:hover, .sv_select_wrapper select:focus {
-  border-bottom-color: #037c8f;
-  /* box-shadow: 0 0 0 2px rgba(3,124,143,0.25); */
-}
-
-@media (min-width: 992px){
-  .sv_select_wrapper select {
-    border-color: #babec5;
-    border-width: 1px;
-    height: 2.3em;
-    padding: 2px 9px;
-    border-radius: 4px;
+    color: #393a3d;
+    font-family: Avenir Next forINTUIT,Avenir,Helvetica,Arial,sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 20px;
-    width: 40%;
-  }
+}
 
-  .sv_select_wrapper select:hover, .sv_select_wrapper select:focus {
+/* Page Level Panel Title */
+.sv_page_title ~ .sv_row > .sv_p_container > .sv_p_title {
+    margin: 0;
+    padding: 0;
+    color: #393a3d;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    margin-top: 0px;
+    margin-bottom: 12px;
+}
+
+@media (min-width: 992px) {
+    .sv_page_title ~ .sv_row > .sv_p_container > .sv_p_title {
+        color: #6b6c72;
+        font-size: 24px;
+        line-height: 28px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Add the separator between page level panels */
+@media (min-width: 768px) {
+    .sv_page_title ~ .sv_row > .sv_p_container::before {
+        content: "";
+        display: block;
+        border-top: 1px solid #b8e7fb;
+        height: 30px;
+    }
+    .sv_page_title + .sv_row > .sv_p_container::before {
+        border-top: none;
+        height: 0;
+    }
+}
+
+.sv_row > .sv_qstn {
+    box-sizing: border-box;
+}
+
+/* Title of questions, irrespective of question-type */
+.sv_qstn .sv_q_title {
+    color: #6b6c72;
+    display: flex;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    justify-content: space-between;
+    line-height: 20px;
+    margin-bottom: 4px;
+    width: 100%;
+}
+
+/* Input field of input-type questions */
+.sv_q_text_root {
+    color: #393a3d;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    padding: 10px 8px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border: 1px solid #babec5;
+    border-radius: 3px;
+    height: 36px;
+}
+
+.sv_q_text_root:focus {
+    background-color: #fff;
     border-color: #037c8f;
     box-shadow: 0 0 0 2px rgba(3,124,143,0.25);
-  }
+}
+
+.sv_q_text_root:hover {
+    background-color: #fff;
+    border-color: #037c8f;
+    box-shadow: 0 0 0 2px rgba(3,124,143,0.25);
+}
+
+@media only screen and (min-width: 992px) {
+    .sv_q_text_root {
+        font-weight: 500;
+        padding: 8px;
+    }
+}
+
+/* Turn off Number Input Spinners (up-down arrows) Refer w3schools.com*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* The description of question below the input field */
+.sv_q_text_root + div > span {
+    font-style: italic;
+    color: #6b6c72;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+}
+
+/* Question title of Radio Button question */
+div[role="radiogroup"] .sv_q_title {
+    border-bottom: none;
+    color: #393a3d;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+/* Customize the Radio Button */
+
+/* The container */
+.sv_q_radiogroup_label {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    color: #393a3d;
+    text-align: left;
+    /* The text of the element can't be selected. */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .sv_q_radiogroup_label {
+        line-height: 20px;
+    }
+}
+
+/* Hide the browser's default radio button */
+.sv_q_radiogroup_label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.sv_q_radiogroup_label .check {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    background-color: #fff;
+    border: 1px solid #393a3d;
+    border-radius: 50%;
+}
+
+@media only screen and (min-width: 768px) {
+    .sv_q_radiogroup_label .check {
+    height: 20px;
+    width: 20px;
+    }
+}
+
+/* On mouse-over, add border color */
+.sv_q_radiogroup_label:hover input ~ .check {
+    border: 1px solid #037c8f;
+}
+
+/* When the radio button is checked, add a blue dot */
+.sv_q_radiogroup input:checked ~ .check {
+    background-color: #fff;
+    border: 1px solid #037c8f;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.sv_q_radiogroup .check:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.sv_q_radiogroup input:checked ~ .check:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.sv_q_radiogroup .check:after {
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #037c8f;
+}
+
+@media only screen and (min-width: 768px) {
+    .sv_q_radiogroup .check:after {
+        top: 4px;
+        left: 4px;
+        width: 12px;
+        height: 12px;
+    }
+}
+
+/* Customize the dropdown */
+.sv_select_wrapper {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.sv_select_wrapper:after {
+    content: '\f078';
+    font: normal normal normal 15px/1 FontAwesome;
+    color: #037c8f;
+    right: 11px;
+    top: -10px;
+    height: 34px;
+    padding: 15px 0px 0px 8px;
+    position: absolute;
+    pointer-events: none;
+}
+
+@media (min-width: 992px) {
+    .sv_select_wrapper:after {
+        top: 5px;
+        right: 61%;
+    }
+}
+
+.sv_select_wrapper select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    -webkit-transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    -moz-transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+    background-color: #fff;
+    border: solid #babec5;
+    border-radius: 0;
+    border-width: 0 0 1px;
+    box-shadow: none;
+    outline: 0;
+    padding: 0;
+
+    transition: border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+
+    width: 100%;
+    color: #393a3d;
+    margin: 10px 0px 30px 5px;
+}
+
+.sv_select_wrapper select:hover, .sv_select_wrapper select:focus {
+    border-bottom-color: #037c8f;
+}
+
+@media (min-width: 992px) {
+    .sv_select_wrapper select {
+        border-color: #babec5;
+        border-width: 1px;
+        height: 2.3em;
+        padding: 2px 9px;
+        border-radius: 4px;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        width: 40%;
+    }
+
+    .sv_select_wrapper select:hover, .sv_select_wrapper select:focus {
+        border-color: #037c8f;
+        box-shadow: 0 0 0 2px rgba(3,124,143,0.25);
+    }
+}
+
+/* Custommize the checkbox */
+/* TODO: It is similar to radio-button customization */
+
+/* Customize the navigation buttons */
+.sv_nav {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+}
+
+/* Properties common for all three (Back, Continue, Finish) buttons */
+.sv_nav > input {
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 18px;
+    margin-bottom: 5px;
+    min-height: 38px;
+    outline: none;
+    text-align: center;
+    transition: all .24s ease;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+}
+
+@media (min-width: 992px) {
+    .sv_nav {
+        flex-direction: row-reverse;
+    }
+    .sv_nav > input {
+        width: 120px;
+        padding-right: 20px;
+    }
+}
+
+/* Continue Button and Finish Button */
+.sv_next_btn, .sv_complete_btn {
+    background-color: #037c8f;
+    color: #fff;
+}
+
+/* Back Button */
+.sv_prev_btn {
+    background-color: #fff;
+    color: #6b6c72;
+}
+
+/* Set the order of these flexible buttons */
+@media (min-width: 992px) {
+    .sv_prev_btn {
+        order: 2;
+    }
+    .sv_next_btn, .sv_complete_btn {
+        order: 1;
+    }
 }
