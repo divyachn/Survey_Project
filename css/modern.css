@@ -128,6 +128,7 @@
   margin-bottom: 1.333em;
   font-size: 1.875em;
   padding-left: 0.293em; } */
+
 .sv_page_title {
   padding-bottom: 20px;
   text-align: center;
@@ -142,18 +143,15 @@
   word-break: break-word;
   word-wrap: break-word;
 }
+
 @media (min-width: 992px){
   .sv_page_title {
     padding-bottom: 30px;
     text-align: left;
 
-    color: #393a3d;
     display: inline-block;
     font-size: 36px;
-    font-style: normal;
-    font-weight: 500;
     line-height: 40px;
-    min-width: 85%;
   }
 }
 
@@ -271,7 +269,7 @@
 .sv-paneldynamic__progress--bottom {
   margin-top: 1em; }
 
-/* @supports (display: flex) {
+@supports (display: flex) {
   .sv-row {
     display: flex;
     flex-wrap: wrap; }
@@ -279,7 +277,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-basis: 100%; }
-} */
+}
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .sv-row > .sv-row__panel,
