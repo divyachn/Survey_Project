@@ -1,4 +1,4 @@
-## Using SurveyJS to design a questionnaire
+## :handshake: SurveyJS 
 
 #### How to achieve a questionnaire similar to Turbotax?
 
